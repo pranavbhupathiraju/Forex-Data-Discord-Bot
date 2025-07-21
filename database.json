@@ -1,0 +1,44 @@
+{
+    "timezone": {
+        "name": "America/New_York",
+        "offset": "UTC-4"
+    },
+    "timezone_scraped": {
+        "name": "America/New_York",
+        "offset": "UTC-4"
+    },
+    "daily_update": {
+        "hour": 7,
+        "minute": 0
+    },
+    "time_threshold": 5,
+    "updated": true,
+    "currencies": [
+        "USD"
+    ],
+    "impacts": [
+        "red",
+        "orange"
+    ],
+    "all_currencies": [
+        "USD",
+        "EUR",
+        "JPY",
+        "GBP",
+        "AUD",
+        "CAD",
+        "CHF",
+        "NZD",
+        "CNY"
+    ],
+    "all_impacts": [
+        "red",
+        "orange",
+        "yellow",
+        "gray"
+    ],
+    "updated_rows": [],
+    "alert_currencies": [
+        "USD"
+    ]
+}
