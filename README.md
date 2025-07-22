@@ -3,10 +3,11 @@
 A Python-based Discord bot that delivers real-time and scheduled economic/forex news alerts to your Discord server. Designed for trading communities, it supports custom filters, timezone handling, and role tagging for high-impact news events.
 
 ## Features
-- Automated daily and real-time alerts for red/orange impact economic news
+- Automated daily and real-time alerts for key economic news
+- Immersive panel-based alerts for imporved user experience
 - Customizable currency and impact filters
 - Timezone-aware scheduling (EST by default)
-- Role tagging for important alerts
+- Discord Role tagging for important alerts
 - Manual commands for news summaries, settings, and more
 
 ## Setup
