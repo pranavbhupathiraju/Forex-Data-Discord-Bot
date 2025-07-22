@@ -24,10 +24,10 @@ A Python-based Discord bot that delivers real-time and scheduled economic/forex 
 
 ## Commands
 - `!news` — Show today's filtered news
-- `!alerts:USD` — Enable real-time alerts for USD news
+- `!alerts:<currency_name>` — Enable real-time alerts for news filterable by currency
 - `!alerts:` — Show today's real-time alert schedule
-- `!currencies:USD,EUR` — Set news filter currencies
-- `!impacts:red,orange` — Set news filter impacts
+- `!currencies:CUR,CUR` — Set news filter currencies
+- `!impacts:impact,impact` — Set news filter impacts
 - `!alertrole:ROLE_ID` — Set which role to tag in alerts
 
 ## Credits
