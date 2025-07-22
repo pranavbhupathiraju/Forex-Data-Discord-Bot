@@ -30,7 +30,7 @@ A Python-based Discord bot that delivers real-time and scheduled economic/forex 
 - `!alertrole:ROLE_ID` — Set which role to tag in alerts
 
 ## Credits
-This project was built using foundational code from Fizah Khalid, licensed under the MIT License. Significant changes were made to the Bot functionality in this repo.
+This project was built using foundational code from Fizah Khalid, licensed under the MIT License. 
 
 ## License
 MIT
