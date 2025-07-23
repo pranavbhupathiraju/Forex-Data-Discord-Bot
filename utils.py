@@ -58,21 +58,28 @@ def form_emoji_flag(currency):
 
 
 async def set_user_timezone(timezone_name, offset, channel):
-    async with aiofiles.open('database.json', mode='r') as file:
-        existing_data = await file.read()
-    if existing_data:
-        data = json.loads(existing_data)
-    else:
-        data = {}
-    data['timezone'] = {"name": timezone_name, "offset": offset}
-    await write_json('database.json', data)
-    tz = pytz.timezone(timezone_name)
-    now = datetime.now(tz)
-    _ = await convert_timezone_and_create_csv()
-    await channel.send(
-        f"Your timezone has been set to {timezone_name}.\nCurrent date and time: {now.strftime('%Y-%m-%d %H:%M:%S')}")
+    from config_manager import config_manager
+    from logger import logger
 
-    await convert_timezone_and_create_csv()
+    try:
+        database = await config_manager.load_database()
+        database['timezone'] = {"name": timezone_name, "offset": offset}
+        await config_manager.save_database(database)
+
+        tz = pytz.timezone(timezone_name)
+        now = datetime.now(tz)
+
+        # Convert timezone only once
+        await convert_timezone_and_create_csv()
+
+        await channel.send(
+            f"Your timezone has been set to {timezone_name}.\nCurrent date and time: {now.strftime('%Y-%m-%d %H:%M:%S')}")
+
+        logger.info(f"Timezone updated to {timezone_name} ({offset})")
+
+    except Exception as e:
+        logger.error(f"Error setting timezone: {e}", exc_info=True)
+        await channel.send(f"Error setting timezone: {e}")
 
 
 def find_timezone_name_using_offset(offset_str):
@@ -246,7 +253,7 @@ def is_red_impact(impact):
     return impact.lower() == "red"
 
 
-def is_orage_impact(impact):
+def is_orange_impact(impact):
     return impact.lower() == "orange"
 
 
@@ -314,14 +321,17 @@ async def news_updates(client, df, channel_id):
                 minute = int(event_time_parts[1])
                 event_time = time(hour, minute).strftime("%H:%M")
 
-                curernt_time, current_time_str = await get_current_time()
-                current_time_plus_10_min = (
-                    current_time + timedelta(minutes=587)).strftime("%H:%M")
+                current_time, current_time_str = await get_current_time()
+                # Use configurable time threshold instead of magic number
+                database = await get_database()
+                time_threshold = database.get('time_threshold', 10)
+                current_time_plus_threshold = (
+                    current_time + timedelta(minutes=time_threshold)).strftime("%H:%M")
                 row_list = row.tolist()
 
                 if json.dumps(row_list) not in database['updated_rows']:
-                    if event_time == current_time_plus_10_min:
-                        if is_red_impact(row['impact']) or is_orage_impact(row['impact']):
+                    if event_time == current_time_plus_threshold:
+                        if is_red_impact(row['impact']) or is_orange_impact(row['impact']):
                             news += f"{form_emoji(row['impact'])} {form_emoji_flag(row['currency'])} {row['currency']} **{row['time']}** - {row['event']}\n"
                             database['updated_rows'].append(
                                 json.dumps(row_list))
