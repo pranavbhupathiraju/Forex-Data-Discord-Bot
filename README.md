@@ -2,7 +2,7 @@
 
 A robust Python-based Discord bot that delivers real-time and scheduled economic/forex news alerts to your Discord server. Designed for trading communities with enterprise-grade reliability, comprehensive logging, and advanced alert management.
 
-## ✨ Features
+## Features
 - **Real-time Alerts**: 5-minute warnings and instant release notifications
 - **Smart Filtering**: Customizable currency and impact level filters
 - **Timezone Support**: Automatic timezone conversion and scheduling
@@ -14,12 +14,12 @@ A robust Python-based Discord bot that delivers real-time and scheduled economic
 - **Configuration Management**: Centralized config with validation
 - **CSV Caching**: Optimized data loading with intelligent caching
 
-## 🚀 Quick Setup
+## Quick Setup
 
 ### Prerequisites
 - Python 3.8 or higher
 - Discord bot token and permissions
-- Economic news CSV data files
+- Economic news CSV data files(run scraper)
 
 ### Installation
 1. **Clone and install dependencies:**
@@ -30,9 +30,23 @@ A robust Python-based Discord bot that delivers real-time and scheduled economic
    ```
 
 2. **Configure the bot:**
-   - The bot will create a default `config.json` template on first run
-   - Fill in your Discord bot credentials and channel IDs
-   - Adjust settings like authorized users and testing mode
+   your config.json should have as follows:
+
+{
+ "public_key":"Your Public Key",
+ "application_id":"Your Application ID",
+ "client_id":"Your Client ID",
+ "client_secret":"Your Client Secret",
+ "token": "Your token",
+ "news_channel_id": channel_id,
+ "operations_channel_id": channel_id,
+ "test_news_channel_id": channel_id,
+ "test_operations_channel_id": channel_id,
+ "alert_role_id": role_id,
+ "testing": true,
+ "authorized_users": ["discord_username"]
+}
+
 
 3. **Add news data:**
    ```bash
@@ -40,30 +54,14 @@ A robust Python-based Discord bot that delivers real-time and scheduled economic
    # Format: MonthName_news.csv (e.g., July_news.csv)
    ```
 
-4. **Run the bot:**
-   ```bash
-   python bot.py
-   ```
 
-### Configuration Example
-```json
-{
-    "token": "your_bot_token_here",
-    "news_channel_id": 123456789,
-    "operations_channel_id": 987654321,
-    "testing": false,
-    "authorized_users": ["your_username"],
-    "alert_role_id": null
-}
-```
 
-## 🎮 Commands
+## Commands
 
 ### News & Information
 - `!news` — Show today's filtered news events
 - `!today` — Alternative command for today's news
 - `!state` — Display current bot configuration and status
-- `!quote` — Get a random inspirational quote
 
 ### Configuration
 - `!currencies:USD,EUR,GBP` — Set currency filters (or `all` for all currencies)
@@ -80,27 +78,15 @@ A robust Python-based Discord bot that delivers real-time and scheduled economic
 ### System
 - `!ping` — Test bot responsiveness
 
-## 🏗️ Architecture
 
-The bot has been completely refactored with a modular architecture:
-
-- **`bot.py`** - Main bot class and startup logic
-- **`command_handler.py`** - Centralized command processing
-- **`alert_manager.py`** - Real-time alert system with memory management
-- **`config_manager.py`** - Configuration and database management
-- **`csv_manager.py`** - CSV data loading and caching
-- **`logger.py`** - Comprehensive logging system
-- **`responses.py`** - Command response handlers
-- **`utils.py`** - Utility functions and timezone handling
-
-## 📊 Monitoring & Logs
+## Monitoring & Logs
 
 - Logs are automatically created in the `logs/` directory
 - Daily log rotation with detailed error tracking
 - Performance metrics and alert statistics
 - Configurable log levels for debugging
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 1. **Bot won't start**: Check `config.json` format and required fields
