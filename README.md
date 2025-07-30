@@ -97,7 +97,7 @@ A robust Python-based Discord bot that delivers real-time and scheduled economic
 ### Debug Mode
 Set logging level to DEBUG in `logger.py` for detailed troubleshooting.
 
-## 🚀 Recent Improvements
+## Recent Improvements
 
 - ✅ Fixed memory leaks in alert system
 - ✅ Added comprehensive error handling
@@ -108,9 +108,9 @@ Set logging level to DEBUG in `logger.py` for detailed troubleshooting.
 - ✅ Fixed timezone conversion redundancy
 - ✅ Improved command parsing system
 
-## 📝 Credits
+## Credits
 This project was built using foundational code from Fizah Khalid, licensed under the MIT License.
 Enhanced and refactored for production use with enterprise-grade reliability.
 
-## 📄 License
+## License
 MIT License - See LICENSE file for details
