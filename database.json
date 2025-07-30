@@ -1,11 +1,11 @@
 {
     "timezone": {
         "name": "America/New_York",
-        "offset": "UTC-4"
+        "offset": "UTC-5"
     },
     "timezone_scraped": {
         "name": "America/New_York",
-        "offset": "UTC-4"
+        "offset": "UTC-5"
     },
     "daily_update": {
         "hour": 7,

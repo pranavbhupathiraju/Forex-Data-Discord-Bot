@@ -358,6 +358,8 @@ date,time,currency,impact,event,actual,forecast,previous,day
 30/07/2025,2:00pm,USD,red,Federal Funds Rate,,,,Wed
 30/07/2025,,USD,red,FOMC Statement,,,,Wed
 30/07/2025,2:30pm,USD,red,FOMC Press Conference,,,,Wed
+30/07/2025,3:20pm,USD,red,TEST NEWS,,,,Wed
+30/07/2025,3:25pm,USD,red,TEST,,,,Wed
 30/07/2025,6:45pm,NZD,yellow,Building Consents m/m,,,,Wed
 30/07/2025,7:50pm,JPY,yellow,Prelim Industrial Production m/m,,,,Wed
 30/07/2025,,JPY,yellow,Retail Sales y/y,,,,Wed

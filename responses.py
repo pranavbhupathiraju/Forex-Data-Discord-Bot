@@ -2,7 +2,6 @@ import json
 import requests
 import asyncio
 import aiofiles
-import pytz
 import pandas as pd
 import os
 from datetime import datetime
@@ -13,8 +12,9 @@ from utils import (
     form_emoji,
     write_json,
     get_datetime_by_offset)
-
-# SEND RANDOM QUOTE
+from constants import DEFAULT_TIMEOUT, CURRENCY_FLAGS
+from timezone_manager import timezone_manager
+from error_handler import error_handler
 
 
 async def send_qoute(message):
@@ -36,30 +36,32 @@ async def send_qoute(message):
             return None
 
     except requests.RequestException as e:
-        logger.error(f"Error fetching quote: {e}")
+        await error_handler.handle_error(e, "fetching quote")
         await message.channel.send("Sorry, couldn't fetch a quote right now.")
         return None
     except Exception as e:
-        logger.error(f"Unexpected error in send_qoute: {e}", exc_info=True)
+        await error_handler.handle_error(e, "sending quote")
         await message.channel.send("An error occurred while fetching the quote.")
         return None
 
 
 async def handle_timezone_message(client, message):
+    """Handle timezone setup with improved error handling"""
     select_timezone = "Please select timezone from UTC-12 to UTC+14"
     await message.channel.send(select_timezone)
 
     def check(m):
         return m.author == message.author and m.channel == message.channel and m.content.strip().startswith('UTC')
+
     try:
-        reply = await client.wait_for('message', timeout=60.0, check=check)
+        reply = await client.wait_for('message', timeout=DEFAULT_TIMEOUT, check=check)
 
     except asyncio.TimeoutError:
         await message.channel.send("Sorry, you took too long to reply.")
     else:
         timezone_name, message_for_timezone = find_timezone_name_using_offset(
             reply.content)
-        if not timezone_name:
+        if timezone_name:
             await set_user_timezone(timezone_name, reply.content, message.channel)
         else:
             await message.channel.send(message_for_timezone)
@@ -86,7 +88,9 @@ async def state(message):
         daily_update = database.get('daily_update', {})
         message_str += "**📅 DAILY UPDATES**\n"
         message_str += f"**Status:** `{'✅ Updated' if database.get('updated', False) else '❌ Pending'}`\n"
-        message_str += f"**Time:** `{daily_update.get('hour', '7')}:{daily_update.get('minute', '0').zfill(2)}`\n\n"
+        hour = daily_update.get('hour', '7')
+        minute = str(daily_update.get('minute', '0')).zfill(2)
+        message_str += f"**Time:** `{hour}:{minute}`\n\n"
 
         # Alert settings
         message_str += "**🚨 ALERTS**\n"
@@ -100,193 +104,299 @@ async def state(message):
         message_str += f"**Mode:** `{'🧪 Testing' if config.get('testing', False) else '🚀 Production'}`\n"
 
         await message.channel.send(message_str)
-        logger.info(f"State information sent to {message.author.name}")
 
     except Exception as e:
-        logger.error(f"Error getting state: {e}", exc_info=True)
+        await error_handler.handle_error(e, "displaying bot state")
         await message.channel.send("Error retrieving bot state.")
 
 
 async def handle_datetime_command(message):
-    existing_data = await get_database()
-    if not existing_data:
-        await message.channel.send(f"Database is empty !")
-        return
-    data = existing_data
+    """Handle datetime command with improved timezone handling"""
+    try:
+        data = await get_database()
+        if 'timezone' in data.keys():
+            timezone_dict = data['timezone']
+            timezone_name = timezone_dict['name']
+            offset = timezone_dict['offset']
 
-    if 'timezone' in data.keys():
-        timezone_dict = data['timezone']
-        offset = timezone_dict['offset']
-
-        dt = get_datetime_by_offset(offset)
-        if dt:
-            time_str = dt.time().strftime('%H:%M')
-            tz = pytz.timezone(timezone_dict['name'])
+            tz = timezone_manager.get_timezone_object(timezone_name)
             now = datetime.now(tz)
-            timezoneOffset = timezone_dict['offset']
+
+            await message.channel.send(
+                f"**Current Date/Time:**\n"
+                f"**Timezone:** {timezone_name} ({offset})\n"
+                f"**Date:** {now.strftime('%Y-%m-%d')}\n"
+                f"**Time:** {now.strftime('%H:%M:%S')}"
+            )
         else:
-            now = datetime.now()
-            time_str = now.strftime('%H:%M')
-            timezoneOffset = None
-    else:
-        now = datetime.now()
-        time_str = now.strftime('%H:%M')
-        timezoneOffset = None
-    # send the confirmation message with the current date and time
-    await message.channel.send(f"Date: `{now.strftime('%d-%m-%Y')}`\nTime: `{time_str}`\nTimezone: `{timezoneOffset}`")
+            await message.channel.send("No timezone configured. Use `!timezone` to set one.")
+
+    except Exception as e:
+        await error_handler.handle_error(e, "handling datetime command")
+        await message.channel.send("Error getting current datetime.")
 
 
 async def set_allowed_currencies(message):
-    msg = message.content
-    database = await get_database()
-    currencies = msg.split(":")[-1]
-    if currencies.lower().strip() == "all":
-        filtered = database['all_currencies']
-    else:
-        filtered = []
-        currencies = currencies.split(",")
-        for currency in currencies:
-            if currency in database['all_currencies']:
-                filtered.append(currency)
+    """Set allowed currencies with improved validation"""
+    try:
+        content = message.content.replace('!currencies:', '').strip()
+        if content.lower() == 'all':
+            currencies = ['USD', 'EUR', 'JPY', 'GBP',
+                          'AUD', 'CAD', 'CHF', 'NZD', 'CNY']
+        else:
+            currencies = [c.strip().upper()
+                          for c in content.split(',') if c.strip()]
 
-    database['currencies'] = filtered
-    await write_json('database.json', database)
-    await message.channel.send(f"Updated Currencies Filter to Include these currencies: {filtered}")
+        if not currencies:
+            await message.channel.send("Please specify currencies or 'all'")
+            return
+
+        database = await get_database()
+        database['currencies'] = currencies
+        from config_manager import config_manager
+        await config_manager.save_database(database)
+
+        await message.channel.send(f"Currencies set to: {', '.join(currencies)}")
+
+    except Exception as e:
+        await error_handler.handle_error(e, "setting currencies")
+        await message.channel.send("Error setting currencies.")
 
 
 async def set_allowed_impacts(message):
-    impacts = message.content.split("impacts:")[-1].split(",")
-    print("Impacts: ", impacts)
-    if impacts != ['']:
+    """Set allowed impacts with improved validation"""
+    try:
+        content = message.content.replace('!impacts:', '').strip()
+        impacts = [i.strip().lower() for i in content.split(',') if i.strip()]
+
+        if not impacts:
+            await message.channel.send("Please specify impact levels")
+            return
+
         database = await get_database()
         database['impacts'] = impacts
-        await write_json('database.json', database)
-        await message.channel.send(f"Updated Impacts Filter to Include these impacts: {'-'.join([form_emoji(impact) for impact in impacts])}")
-    else:
-        await message.channel.send("You are trying to set empty impacts, it cannot be empty")
+        from config_manager import config_manager
+        await config_manager.save_database(database)
+
+        await message.channel.send(f"Impacts set to: {', '.join(impacts)}")
+
+    except Exception as e:
+        await error_handler.handle_error(e, "setting impacts")
+        await message.channel.send("Error setting impacts.")
 
 
 async def set_daily_update_time(message):
-    update_time = message.content.split(":")
+    """Set daily update time with improved validation"""
+    try:
+        content = message.content.replace('!daily:', '').strip()
+        time_parts = content.split(':')
 
-    if len(update_time) == 3:
-        hour = update_time[-2].zfill(2)  # Ensure two-digit hour format
-        minute = update_time[-1].zfill(2)  # Ensure two-digit minute format
+        if len(time_parts) != 2:
+            await message.channel.send("Please use format HH:MM (e.g., 07:00)")
+            return
 
-        # Check if hour and minute are valid integers
-        if hour.isdigit() and minute.isdigit():
-            hour = int(hour)
-            minute = int(minute)
+        try:
+            hour = int(time_parts[0])
+            minute = int(time_parts[1])
+        except ValueError:
+            await message.channel.send("Invalid time format. Use HH:MM")
+            return
 
-            # Check if hour and minute are within valid ranges (0-23 for hour, 0-59 for minute)
-            if 0 <= hour <= 23 and 0 <= minute <= 59:
-                database = await get_database()
-                database["daily_update"]["hour"] = str(hour)
-                database["daily_update"]["minute"] = str(minute)
-                await write_json('database.json', database)
-                await message.channel.send(f"News Daily Update Time changed to {hour:02d}:{minute:02d}")
-            else:
-                await message.channel.send("Invalid hour or minute value. Hour should be between 0 and 23, and minute should be between 0 and 59.")
+        # Check if hour and minute are within valid ranges (0-23 for hour, 0-59 for minute)
+        if 0 <= hour <= 23 and 0 <= minute <= 59:
+            database = await get_database()
+            database['daily_update'] = {
+                'hour': str(hour),
+                'minute': str(minute)
+            }
+            from config_manager import config_manager
+            await config_manager.save_database(database)
+
+            await message.channel.send(f"Daily update time set to {hour:02d}:{minute:02d}")
         else:
-            await message.channel.send("Invalid hour or minute format. Please use two-digit format, e.g., !daily:03:03")
-    else:
-        await message.channel.send("Invalid command format. Please use !daily:hh:mm")
+            await message.channel.send("Invalid time. Hour should be between 0 and 23, and minute should be between 0 and 59.")
+
+    except Exception as e:
+        await error_handler.handle_error(e, "setting daily update time")
+        await message.channel.send("Error setting daily update time.")
 
 
 async def today_news(message):
-    """Show today's news events"""
-    from csv_manager import csv_manager
-    from logger import logger
-
+    """Display today's news with improved error handling"""
     try:
-        # Get today's events
-        events = csv_manager.get_today_events(timezone='US/Eastern')
+        from csv_manager import csv_manager
+
+        # Get today's events using the centralized CSV manager
+        events = await csv_manager.get_today_events()
 
         if not events:
-            await message.channel.send("No news events scheduled for today.")
+            await message.channel.send("No news events found for today.")
             return
 
-        # Format message
-        msg = "**Today's Forex News Events:**\n"
+        # Format events for display
+        news_text = ""
         for event in events:
-            time_str = event.get('time', 'Unknown')
             currency = event.get('currency', 'Unknown')
-            impact = event.get('impact', 'unknown').capitalize()
+            impact = event.get('impact', 'gray')
+            time = event.get('time', 'Unknown')
             event_name = event.get('event', 'Unknown Event')
 
-            msg += f"- {time_str} | {currency} | {impact} | {event_name}\n"
+            event_line = f"{form_emoji(impact)} {CURRENCY_FLAGS.get(currency, '')} {currency} **{time}** - {event_name}\n"
 
-        # Split message if too long
-        if len(msg) > 2000:
-            chunks = [msg[i:i+1900] for i in range(0, len(msg), 1900)]
-            for chunk in chunks:
-                await message.channel.send(chunk)
+            # Check if adding this line would exceed Discord's limit
+            if len(news_text + event_line) > 1900:  # Leave some buffer
+                # Send current chunk and start new one
+                if news_text:
+                    await message.channel.send(news_text)
+                news_text = event_line
+            else:
+                news_text += event_line
+
+        # Send any remaining text
+        if news_text:
+            await message.channel.send(news_text)
         else:
-            await message.channel.send(msg)
-
-        logger.info(f"Today's news sent to {message.author.name}")
+            await message.channel.send("No news events found for today.")
 
     except Exception as e:
-        logger.error(f"Error sending today's news: {e}", exc_info=True)
-        await message.channel.send("Error retrieving today's news events.")
+        await error_handler.handle_error(e, "displaying today's news")
+        await message.channel.send("Error retrieving today's news.")
 
 
 async def set_alert_currencies(message):
-    msg = message.content
-    database = await get_database()
-    if ':' in msg:
-        currencies = msg.split(':', 1)[-1]
-        import pandas as pd
-        import os
-        from datetime import datetime
-        import pytz
-        est = pytz.timezone('US/Eastern')
-        today = datetime.now(est).strftime('%d/%m/%Y')
-        news_dir = os.path.join(os.path.dirname(__file__), 'news')
-        csv_files = [f for f in os.listdir(news_dir) if f.endswith('.csv')]
-        if not csv_files:
-            await message.channel.send("No news data available.")
+    """Set alert currencies with improved validation"""
+    try:
+        content = message.content.replace('!alerts:', '').strip()
+
+        if not content:
+            # Show current alert schedule
+            database = await get_database()
+            alert_currencies = database.get('alert_currencies', [])
+
+            # Get today's events for alert currencies
+            from csv_manager import csv_manager
+            events = await csv_manager.get_high_impact_events()
+
+            if alert_currencies:
+                message_str = f"**Current Alert Currencies:** {', '.join(alert_currencies)}\n\n"
+
+                # Filter events for alert currencies
+                alert_events = [e for e in events if e.get(
+                    'currency') in alert_currencies]
+
+                if alert_events:
+                    message_str += "**Today's Alert Schedule:**\n"
+                    for event in alert_events[:10]:  # Show first 10 events
+                        time = event.get('time', 'Unknown')
+                        currency = event.get('currency', 'Unknown')
+                        impact = event.get('impact', 'gray')
+                        event_name = event.get('event', 'Unknown Event')
+                        message_str += f"{form_emoji(impact)} {CURRENCY_FLAGS.get(currency, '')} {currency} **{time}** - {event_name}\n"
+
+                    if len(alert_events) > 10:
+                        message_str += f"\n... and {len(alert_events) - 10} more events"
+                else:
+                    message_str += "No alert events scheduled for today for the selected currencies."
+            else:
+                message_str = "No alert currencies set. Use `!alerts:USD,EUR` to set them."
+
+            await message.channel.send(message_str)
             return
-        latest_csv = max(csv_files, key=lambda f: os.path.getmtime(
-            os.path.join(news_dir, f)))
-        df = pd.read_csv(os.path.join(news_dir, latest_csv))
-        # Debug prints removed for production
-        alert_currencies = [c.strip().upper()
-                            for c in currencies.split(',') if c.strip()]
-        # Robust filtering
-        filtered_events = df[
-            (df['date'].astype(str).str.strip() == today) &
-            (df['impact'].astype(str).str.lower().str.strip().isin(['red', 'orange'])) &
-            (df['currency'].astype(str).str.upper(
-            ).str.strip().isin(alert_currencies))
-        ]
-        if currencies.strip() == '':
-            # Show all red/orange events for today, regardless of alert_currencies
-            today_events = df[
-                (df['date'].astype(str).str.strip() == today) &
-                (df['impact'].astype(str).str.lower(
-                ).str.strip().isin(['red', 'orange']))
-            ]
-            if today_events.empty:
-                await message.channel.send("No real-time alerts scheduled for today.")
-                return
-            msg_str = "**Today's Real-Time Alert News Events:**\n"
-            for _, row in today_events.iterrows():
-                msg_str += f"- {row['time']} | {row['currency']} | {row['impact'].capitalize()} | {row['event']}\n"
-            await message.channel.send(msg_str)
-            return
-        # Otherwise, update alert_currencies and show only those
-        database['alert_currencies'] = alert_currencies
-        await write_json('database.json', database)
-        if filtered_events.empty:
-            await message.channel.send(
-                f"Real-time alerts enabled for: {', '.join(alert_currencies)}\nNo real-time alerts scheduled for today for the selected currencies."
-            )
+
+        if content.lower() == 'all':
+            currencies = ['USD', 'EUR', 'JPY', 'GBP',
+                          'AUD', 'CAD', 'CHF', 'NZD', 'CNY']
         else:
-            msg_str = f"Real-time alerts enabled for: {', '.join(alert_currencies)}\n"
-            msg_str += "**Today's Real-Time Alert News Events (for selected currencies):**\n"
-            for _, row in filtered_events.iterrows():
-                msg_str += f"- {row['time']} | {row['currency']} | {row['impact'].capitalize()} | {row['event']}\n"
-            await message.channel.send(msg_str)
-    else:
-        await message.channel.send("Please use the format !alerts:USD,EUR or !alerts: to show today's alert schedule.")
+            currencies = [c.strip().upper()
+                          for c in content.split(',') if c.strip()]
+
+        if not currencies:
+            await message.channel.send("Please specify currencies or 'all'")
+            return
+
+        database = await get_database()
+        database['alert_currencies'] = currencies
+        from config_manager import config_manager
+        await config_manager.save_database(database)
+
+        await message.channel.send(f"Alert currencies set to: {', '.join(currencies)}")
+
+    except Exception as e:
+        await error_handler.handle_error(e, "setting alert currencies")
+        await message.channel.send("Error setting alert currencies.")
+
+
+async def refresh_data(message):
+    """Force refresh CSV data and clear caches"""
+    try:
+        from csv_manager import csv_manager
+        from cache_manager import cache_manager
+
+        # Clear all caches
+        cache_manager.clear()
+        csv_manager.force_refresh_cache()
+
+        # Test loading fresh data
+        events = await csv_manager.get_today_events(force_refresh=True)
+
+        await message.channel.send(f"✅ Cache refreshed! Found {len(events)} events for today.")
+
+    except Exception as e:
+        await error_handler.handle_error(e, "refreshing data")
+        await message.channel.send("Error refreshing data.")
+
+
+async def debug_time(message):
+    """Debug current time and event times"""
+    try:
+        from csv_manager import csv_manager
+        from timezone_manager import timezone_manager
+        import pandas as pd
+
+        # Get current time
+        now = await timezone_manager.get_current_datetime()
+        current_timezone = await timezone_manager.get_current_timezone()
+
+        # Get raw CSV data
+        df = csv_manager.load_latest_csv(force_refresh=True)
+
+        debug_msg = f"**🔍 Debug Info**\n\n"
+        debug_msg += f"**Current Time:** {now.strftime('%H:%M:%S')}\n"
+        debug_msg += f"**Timezone:** {current_timezone}\n"
+        debug_msg += f"**Today's Date:** {now.strftime('%d/%m/%Y')}\n\n"
+
+        if df is not None:
+            debug_msg += f"**CSV File Info:**\n"
+            debug_msg += f"• Total rows: {len(df)}\n"
+            debug_msg += f"• Columns: {list(df.columns)}\n\n"
+
+            # Show today's events from raw CSV
+            today_str = now.strftime('%d/%m/%Y')
+            today_events = df[df['date'].astype(str).str.strip() == today_str]
+            debug_msg += f"**Today's Events (Raw CSV):**\n"
+            debug_msg += f"• Found {len(today_events)} events for {today_str}\n\n"
+
+            for idx, row in today_events.head(10).iterrows():
+                time_val = row.get('time', 'Unknown')
+                date_val = row.get('date', 'Unknown')
+                event_val = row.get('event', 'Unknown')
+                currency_val = row.get('currency', 'Unknown')
+                impact_val = row.get('impact', 'Unknown')
+
+                debug_msg += f"• Time: `{time_val}` | Date: `{date_val}` | {currency_val} | {impact_val} | {event_val}\n"
+
+        # Get filtered high impact events
+        events = await csv_manager.get_high_impact_events()
+        debug_msg += f"\n**High Impact Events (Filtered):**\n"
+        for event in events[:10]:
+            time_str = event.get('time', 'Unknown')
+            event_name = event.get('event', 'Unknown')
+            currency = event.get('currency', 'Unknown')
+            impact = event.get('impact', 'Unknown')
+            debug_msg += f"• {time_str} - {currency} ({impact}) - {event_name}\n"
+
+        await message.channel.send(debug_msg)
+
+    except Exception as e:
+        await error_handler.handle_error(e, "debug time")
+        await message.channel.send(f"Error in debug command: {str(e)}")

@@ -9,3 +9,4 @@ __pycache__/
 *.so
 .coverage
 .pytest_cache/
+../forex_factory_calendar_news_scraper/
