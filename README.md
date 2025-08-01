@@ -1,6 +1,6 @@
 # Economic Data Discord Bot
 
-A robust Python-based Discord bot that delivers real-time and scheduled economic/forex news alerts to your Discord server. Designed for trading communities with enterprise-grade reliability, comprehensive logging, and advanced alert management.
+A robust Python-based Discord bot that delivers real-time and scheduled economic/forex news alerts to your Discord server. Designed for trading communities with high reliability, comprehensive logging, and advanced alert management.
 
 ## Features
 - **Real-time Alerts**: 5-minute warnings and instant release notifications
@@ -14,7 +14,6 @@ A robust Python-based Discord bot that delivers real-time and scheduled economic
 - **Configuration Management**: Centralized config with validation
 - **CSV Caching**: Optimized data loading with intelligent caching
 
-## Quick Setup
 
 ### Prerequisites
 - Python 3.8 or higher
