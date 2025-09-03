@@ -1,0 +1,356 @@
+date,time,currency,impact,event,actual,forecast,previous,day
+01/08/2025,All Day,CHF,gray,Bank Holiday,,,,Fri
+01/08/2025,2:00am,GBP,yellow,Nationwide HPI m/m,0.6%,,,Fri
+01/08/2025,2:30am,AUD,yellow,Commodity Prices y/y,-9.0%,,,Fri
+01/08/2025,3:15am,EUR,yellow,Spanish Manufacturing PMI,51.9,,,Fri
+01/08/2025,3:45am,EUR,yellow,Italian Manufacturing PMI,49.8,,,Fri
+01/08/2025,3:50am,EUR,yellow,French Final Manufacturing PMI,48.2,,,Fri
+01/08/2025,3:55am,EUR,yellow,German Final Manufacturing PMI,49.1,,,Fri
+01/08/2025,4:00am,EUR,yellow,Final Manufacturing PMI,49.8,,,Fri
+01/08/2025,,EUR,yellow,Italian Retail Sales m/m,0.6%,,,Fri
+01/08/2025,4:30am,GBP,yellow,Final Manufacturing PMI,48.0,,,Fri
+01/08/2025,5:00am,EUR,orange,Core CPI Flash Estimate y/y,2.3%,,,Fri
+01/08/2025,,EUR,orange,CPI Flash Estimate y/y,2.0%,,,Fri
+01/08/2025,8:30am,USD,red,Average Hourly Earnings m/m,0.3%,,,Fri
+01/08/2025,,USD,red,Non-Farm Employment Change,73K,,,Fri
+01/08/2025,,USD,red,Unemployment Rate,4.2%,,,Fri
+01/08/2025,9:30am,CAD,yellow,Manufacturing PMI,46.1,,,Fri
+01/08/2025,9:45am,USD,yellow,Final Manufacturing PMI,49.8,,,Fri
+01/08/2025,10:00am,USD,red,ISM Manufacturing PMI,48.0,,,Fri
+01/08/2025,,USD,orange,ISM Manufacturing Prices,64.8,,,Fri
+01/08/2025,,USD,orange,Revised UoM Consumer Sentiment,61.7,,,Fri
+01/08/2025,,USD,yellow,Construction Spending m/m,-0.4%,,,Fri
+01/08/2025,,USD,yellow,Revised UoM Inflation Expectations,4.5%,,,Fri
+01/08/2025,All Day,USD,yellow,Wards Total Vehicle Sales,16.4M,,,Fri
+03/08/2025,All Day,AUD,gray,Bank Holiday,,,,Sun
+03/08/2025,7:50pm,JPY,yellow,Monetary Base y/y,-3.9%,,,Sun
+03/08/2025,9:00pm,AUD,yellow,MI Inflation Gauge m/m,0.9%,,,Sun
+04/08/2025,2:30am,CHF,red,CPI m/m,0.0%,,,Mon
+04/08/2025,3:00am,EUR,yellow,Spanish Unemployment Change,-1.4K,,,Mon
+04/08/2025,3:30am,CHF,yellow,Manufacturing PMI,48.8,,,Mon
+04/08/2025,4:30am,EUR,yellow,Sentix Investor Confidence,-3.7,,,Mon
+04/08/2025,All Day,CAD,gray,Bank Holiday,,,,Mon
+04/08/2025,10:00am,USD,yellow,Factory Orders m/m,-4.8%,,,Mon
+04/08/2025,2:00pm,USD,yellow,Loan Officer Survey,,,,Mon
+04/08/2025,7:50pm,JPY,yellow,Monetary Policy Meeting Minutes,,,,Mon
+04/08/2025,9:00pm,NZD,yellow,ANZ Commodity Prices m/m,-1.8%,,,Mon
+04/08/2025,9:30pm,AUD,yellow,ANZ Job Advertisements m/m,-1.0%,,,Mon
+04/08/2025,9:45pm,CNY,yellow,Caixin Services PMI,52.6,,,Mon
+04/08/2025,11:35pm,JPY,yellow,10-y Bond Auction,1.46|3.1,,,Mon
+05/08/2025,2:45am,EUR,yellow,French Gov Budget Balance,-100.4B,,,Tue
+05/08/2025,,EUR,yellow,French Industrial Production m/m,3.8%,,,Tue
+05/08/2025,3:15am,EUR,yellow,Spanish Services PMI,55.1,,,Tue
+05/08/2025,3:45am,EUR,yellow,Italian Services PMI,52.3,,,Tue
+05/08/2025,3:50am,EUR,yellow,French Final Services PMI,48.5,,,Tue
+05/08/2025,3:55am,EUR,yellow,German Final Services PMI,50.6,,,Tue
+05/08/2025,4:00am,EUR,yellow,Final Services PMI,51.0,,,Tue
+05/08/2025,4:30am,GBP,yellow,Final Services PMI,51.8,,,Tue
+05/08/2025,5:00am,EUR,yellow,PPI m/m,0.8%,,,Tue
+05/08/2025,5:02am,GBP,yellow,10-y Bond Auction,4.52|3.3,,,Tue
+05/08/2025,8:00am,USD,orange,President Trump Speaks,,,,Tue
+05/08/2025,8:30am,CAD,yellow,Trade Balance,-5.9B,,,Tue
+05/08/2025,,USD,yellow,Trade Balance,-60.2B,,,Tue
+05/08/2025,9:45am,USD,yellow,Final Services PMI,7:19,,,Tue
+05/08/2025,10:00am,USD,red,ISM Services PMI,,,,Tue
+05/08/2025,1:00pm,USD,red, Test News,,,,Tue
+05/08/2025,1:20pm,USD,orange, Test News2,,,,Tue
+05/08/2025,Tentative,USD,yellow,RCM/TIPP Economic Optimism,,,,Tue
+05/08/2025,Tentative,NZD,yellow,GDT Price Index,,,,Tue
+05/08/2025,4:30pm,USD,yellow,API Weekly Statistical Bulletin,,,,Tue
+05/08/2025,6:45pm,NZD,red,Employment Change q/q,,,,Tue
+05/08/2025,,NZD,red,Unemployment Rate,,,,Tue
+05/08/2025,,NZD,yellow,Labor Cost Index q/q,,,,Tue
+05/08/2025,7:30pm,JPY,yellow,Average Cash Earnings y/y,,,,Tue
+06/08/2025,2:00am,EUR,yellow,German Factory Orders m/m,,,,Wed
+06/08/2025,2:45am,EUR,yellow,French Prelim Private Payrolls q/q,,,,Wed
+06/08/2025,4:00am,EUR,yellow,Italian Industrial Production m/m,,,,Wed
+06/08/2025,4:30am,GBP,yellow,Construction PMI,,,,Wed
+06/08/2025,5:00am,EUR,yellow,Retail Sales m/m,,,,Wed
+06/08/2025,10:30am,USD,yellow,Crude Oil Inventories,,,,Wed
+06/08/2025,1:01pm,USD,yellow,10-y Bond Auction,,,,Wed
+06/08/2025,2:00pm,USD,yellow,FOMC Member Collins Speaks,,,,Wed
+06/08/2025,,USD,yellow,FOMC Member Cook Speaks,,,,Wed
+06/08/2025,4:10pm,USD,yellow,FOMC Member Daly Speaks,,,,Wed
+06/08/2025,9:30pm,AUD,yellow,Goods Trade Balance,,,,Wed
+06/08/2025,Tentative,CNY,yellow,Trade Balance,,,,Wed
+06/08/2025,Tentative,CNY,yellow,USD-Denominated Trade Balance,,,,Wed
+06/08/2025,11:00pm,NZD,orange,Inflation Expectations q/q,,,,Wed
+06/08/2025,11:35pm,JPY,yellow,30-y Bond Auction,,,,Wed
+07/08/2025,1:00am,JPY,yellow,Leading Indicators,,,,Thu
+07/08/2025,2:00am,EUR,yellow,German Industrial Production m/m,,,,Thu
+07/08/2025,,EUR,yellow,German Trade Balance,,,,Thu
+07/08/2025,,GBP,yellow,Halifax HPI m/m,,,,Thu
+07/08/2025,2:45am,EUR,yellow,French Trade Balance,,,,Thu
+07/08/2025,3:00am,CHF,yellow,Foreign Currency Reserves,,,,Thu
+07/08/2025,,CHF,yellow,Unemployment Rate,,,,Thu
+07/08/2025,4:00am,EUR,yellow,ECB Economic Bulletin,,,,Thu
+07/08/2025,Tentative,EUR,yellow,Spanish 10-y Bond Auction,,,,Thu
+07/08/2025,Tentative,EUR,yellow,French 10-y Bond Auction,,,,Thu
+07/08/2025,7:00am,GBP,red,BOE Monetary Policy Report,,,,Thu
+07/08/2025,,GBP,red,Monetary Policy Summary,,,,Thu
+07/08/2025,,GBP,red,MPC Official Bank Rate Votes,,,,Thu
+07/08/2025,,GBP,red,Official Bank Rate,,,,Thu
+07/08/2025,8:30am,USD,red,Unemployment Claims,,,,Thu
+07/08/2025,,USD,yellow,Prelim Nonfarm Productivity q/q,,,,Thu
+07/08/2025,,USD,yellow,Prelim Unit Labor Costs q/q,,,,Thu
+07/08/2025,10:00am,CAD,orange,Ivey PMI,,,,Thu
+07/08/2025,,USD,yellow,Final Wholesale Inventories m/m,,,,Thu
+07/08/2025,,USD,yellow,FOMC Member Bostic Speaks,,,,Thu
+07/08/2025,10:30am,USD,yellow,Natural Gas Storage,,,,Thu
+07/08/2025,1:01pm,USD,yellow,30-y Bond Auction,,,,Thu
+07/08/2025,3:00pm,USD,yellow,Consumer Credit m/m,,,,Thu
+07/08/2025,7:30pm,JPY,yellow,Household Spending y/y,,,,Thu
+07/08/2025,7:50pm,JPY,yellow,Bank Lending y/y,,,,Thu
+07/08/2025,,JPY,yellow,BOJ Summary of Opinions,,,,Thu
+07/08/2025,,JPY,yellow,Current Account,,,,Thu
+08/08/2025,1:00am,JPY,yellow,Economy Watchers Sentiment,,,,Fri
+08/08/2025,3:00am,CHF,yellow,SECO Consumer Climate,,,,Fri
+08/08/2025,7:15am,GBP,yellow,MPC Member Pill Speaks,,,,Fri
+08/08/2025,8:30am,CAD,red,Employment Change,,,,Fri
+08/08/2025,,CAD,red,Unemployment Rate,,,,Fri
+08/08/2025,10:20am,USD,yellow,FOMC Member Musalem Speaks,,,,Fri
+08/08/2025,9:30pm,CNY,orange,CPI y/y,,,,Fri
+08/08/2025,,CNY,orange,PPI y/y,,,,Fri
+09/08/2025,12:15pm,USD,yellow,FOMC Member Bowman Speaks,,,,Sat
+10/08/2025,All Day,JPY,gray,Bank Holiday,,,,Sun
+11/08/2025,Tentative,CNY,orange,New Loans,,,,Mon
+11/08/2025,Tentative,CNY,yellow,M2 Money Supply y/y,,,,Mon
+11/08/2025,5:00am,EUR,yellow,Italian Trade Balance,,,,Mon
+11/08/2025,Tentative,USD,yellow,Cleveland Fed Inflation Expectations,,,,Mon
+11/08/2025,7:01pm,GBP,yellow,BRC Retail Sales Monitor y/y,,,,Mon
+11/08/2025,7:50pm,JPY,yellow,M2 Money Stock y/y,,,,Mon
+11/08/2025,9:30pm,AUD,yellow,NAB Business Confidence,,,,Mon
+12/08/2025,12:30am,AUD,red,Cash Rate,,,,Tue
+12/08/2025,,AUD,red,RBA Monetary Policy Statement,,,,Tue
+12/08/2025,,AUD,red,RBA Rate Statement,,,,Tue
+12/08/2025,1:30am,AUD,red,RBA Press Conference,,,,Tue
+12/08/2025,2:00am,GBP,orange,Average Earnings Index 3m/y,,,,Tue
+12/08/2025,,GBP,orange,Claimant Count Change,,,,Tue
+12/08/2025,,GBP,yellow,Unemployment Rate,,,,Tue
+12/08/2025,5:00am,EUR,orange,German ZEW Economic Sentiment,,,,Tue
+12/08/2025,,EUR,yellow,ZEW Economic Sentiment,,,,Tue
+12/08/2025,6:00am,USD,yellow,NFIB Small Business Index,,,,Tue
+12/08/2025,8:30am,CAD,yellow,Building Permits m/m,,,,Tue
+12/08/2025,,USD,red,Core CPI m/m,,,,Tue
+12/08/2025,,USD,red,CPI m/m,,,,Tue
+12/08/2025,,USD,red,CPI y/y,,,,Tue
+12/08/2025,2:00pm,USD,yellow,Federal Budget Balance,,,,Tue
+12/08/2025,4:30pm,USD,yellow,API Weekly Statistical Bulletin,,,,Tue
+12/08/2025,7:50pm,JPY,yellow,PPI y/y,,,,Tue
+12/08/2025,9:30pm,AUD,red,Wage Price Index q/q,,,,Tue
+13/08/2025,2:00am,EUR,yellow,German Final CPI m/m,,,,Wed
+13/08/2025,,JPY,yellow,Prelim Machine Tool Orders y/y,,,,Wed
+13/08/2025,Tentative,EUR,yellow,German 10-y Bond Auction,,,,Wed
+13/08/2025,10:30am,USD,yellow,Crude Oil Inventories,,,,Wed
+13/08/2025,1:30pm,CAD,yellow,BOC Summary of Deliberations,,,,Wed
+13/08/2025,7:01pm,GBP,yellow,RICS House Price Balance,,,,Wed
+13/08/2025,9:30pm,AUD,red,Employment Change,,,,Wed
+13/08/2025,,AUD,red,Unemployment Rate,,,,Wed
+14/08/2025,2:00am,GBP,red,GDP m/m,,,,Thu
+14/08/2025,,GBP,orange,Prelim GDP q/q,,,,Thu
+14/08/2025,,GBP,yellow,Construction Output m/m,,,,Thu
+14/08/2025,,GBP,yellow,Goods Trade Balance,,,,Thu
+14/08/2025,,GBP,yellow,Index of Services 3m/3m,,,,Thu
+14/08/2025,,GBP,yellow,Industrial Production m/m,,,,Thu
+14/08/2025,,GBP,yellow,Manufacturing Production m/m,,,,Thu
+14/08/2025,,GBP,yellow,Prelim Business Investment q/q,,,,Thu
+14/08/2025,2:30am,CHF,yellow,PPI m/m,,,,Thu
+14/08/2025,2:45am,EUR,yellow,French Final CPI m/m,,,,Thu
+14/08/2025,5:00am,EUR,yellow,Flash Employment Change q/q,,,,Thu
+14/08/2025,,EUR,yellow,Flash GDP q/q,,,,Thu
+14/08/2025,,EUR,yellow,Industrial Production m/m,,,,Thu
+14/08/2025,All Day,EUR,yellow,Eurogroup Meetings,,,,Thu
+14/08/2025,Tentative,EUR,yellow,German 30-y Bond Auction,,,,Thu
+14/08/2025,8:30am,USD,red,Core PPI m/m,,,,Thu
+14/08/2025,,USD,red,PPI m/m,,,,Thu
+14/08/2025,,USD,red,Unemployment Claims,,,,Thu
+14/08/2025,9:30am,GBP,yellow,CB Leading Index m/m,,,,Thu
+14/08/2025,Tentative,USD,yellow,Mortgage Delinquencies,,,,Thu
+14/08/2025,10:30am,AUD,yellow,CB Leading Index m/m,,,,Thu
+14/08/2025,,USD,yellow,Natural Gas Storage,,,,Thu
+14/08/2025,6:30pm,NZD,yellow,BusinessNZ Manufacturing Index,,,,Thu
+14/08/2025,6:45pm,NZD,yellow,FPI m/m,,,,Thu
+14/08/2025,,NZD,yellow,Visitor Arrivals m/m,,,,Thu
+14/08/2025,7:50pm,JPY,yellow,Prelim GDP Price Index y/y,,,,Thu
+14/08/2025,,JPY,yellow,Prelim GDP q/q,,,,Thu
+14/08/2025,9:30pm,CNY,yellow,New Home Prices m/m,,,,Thu
+14/08/2025,10:00pm,CNY,orange,Industrial Production y/y,,,,Thu
+14/08/2025,,CNY,orange,Retail Sales y/y,,,,Thu
+14/08/2025,,CNY,yellow,Fixed Asset Investment ytd/y,,,,Thu
+14/08/2025,,CNY,yellow,NBS Press Conference,,,,Thu
+14/08/2025,,CNY,yellow,Unemployment Rate,,,,Thu
+14/08/2025,Tentative,NZD,yellow,RBNZ Statement of Intent,,,,Thu
+15/08/2025,12:30am,JPY,yellow,Revised Industrial Production m/m,,,,Fri
+15/08/2025,2:00am,EUR,yellow,German WPI m/m,,,,Fri
+15/08/2025,All Day,EUR,gray,French Bank Holiday,,,,Fri
+15/08/2025,All Day,EUR,gray,Italian Bank Holiday,,,,Fri
+15/08/2025,All Day,EUR,yellow,ECOFIN Meetings,,,,Fri
+15/08/2025,8:30am,CAD,yellow,Manufacturing Sales m/m,,,,Fri
+15/08/2025,,CAD,yellow,Wholesale Sales m/m,,,,Fri
+15/08/2025,,USD,red,Core Retail Sales m/m,,,,Fri
+15/08/2025,,USD,red,Retail Sales m/m,,,,Fri
+15/08/2025,,USD,orange,Empire State Manufacturing Index,,,,Fri
+15/08/2025,,USD,yellow,Import Prices m/m,,,,Fri
+15/08/2025,9:15am,USD,yellow,Capacity Utilization Rate,,,,Fri
+15/08/2025,,USD,yellow,Industrial Production m/m,,,,Fri
+15/08/2025,10:00am,USD,red,Prelim UoM Consumer Sentiment,,,,Fri
+15/08/2025,,USD,red,Prelim UoM Inflation Expectations,,,,Fri
+15/08/2025,,USD,yellow,Business Inventories m/m,,,,Fri
+15/08/2025,4:00pm,USD,yellow,TIC Long-Term Purchases,,,,Fri
+17/08/2025,6:30pm,NZD,yellow,BusinessNZ Services Index,,,,Sun
+17/08/2025,7:01pm,GBP,yellow,Rightmove HPI m/m,,,,Sun
+18/08/2025,12:30am,JPY,yellow,Tertiary Industry Activity m/m,,,,Mon
+18/08/2025,5:00am,EUR,yellow,Trade Balance,,,,Mon
+18/08/2025,6:00am,EUR,yellow,German Buba Monthly Report,,,,Mon
+18/08/2025,8:15am,CAD,yellow,Housing Starts,,,,Mon
+18/08/2025,8:30am,CAD,yellow,Foreign Securities Purchases,,,,Mon
+18/08/2025,10:00am,USD,yellow,NAHB Housing Market Index,,,,Mon
+18/08/2025,6:45pm,NZD,yellow,PPI Input q/q,,,,Mon
+18/08/2025,,NZD,yellow,PPI Output q/q,,,,Mon
+18/08/2025,8:30pm,AUD,yellow,Westpac Consumer Sentiment,,,,Mon
+19/08/2025,Tentative,CNY,yellow,Foreign Direct Investment ytd/y,,,,Tue
+19/08/2025,4:00am,EUR,yellow,Current Account,,,,Tue
+19/08/2025,8:30am,CAD,red,CPI m/m,,,,Tue
+19/08/2025,,CAD,red,Median CPI y/y,,,,Tue
+19/08/2025,,CAD,red,Trimmed CPI y/y,,,,Tue
+19/08/2025,,CAD,orange,Common CPI y/y,,,,Tue
+19/08/2025,,CAD,yellow,Core CPI m/m,,,,Tue
+19/08/2025,,USD,yellow,Building Permits,,,,Tue
+19/08/2025,,USD,yellow,Housing Starts,,,,Tue
+19/08/2025,Tentative,NZD,yellow,GDT Price Index,,,,Tue
+19/08/2025,4:30pm,USD,yellow,API Weekly Statistical Bulletin,,,,Tue
+19/08/2025,7:50pm,JPY,yellow,Core Machinery Orders m/m,,,,Tue
+19/08/2025,,JPY,yellow,Trade Balance,,,,Tue
+19/08/2025,9:00pm,CNY,orange,1-y Loan Prime Rate,,,,Tue
+19/08/2025,,CNY,orange,5-y Loan Prime Rate,,,,Tue
+19/08/2025,10:00pm,NZD,red,Official Cash Rate,,,,Tue
+19/08/2025,,NZD,red,RBNZ Monetary Policy Statement,,,,Tue
+19/08/2025,,NZD,red,RBNZ Rate Statement,,,,Tue
+19/08/2025,11:00pm,NZD,red,RBNZ Press Conference,,,,Tue
+20/08/2025,2:00am,EUR,yellow,German PPI m/m,,,,Wed
+20/08/2025,,GBP,red,CPI y/y,,,,Wed
+20/08/2025,,GBP,yellow,Core CPI y/y,,,,Wed
+20/08/2025,,GBP,yellow,PPI Input m/m,,,,Wed
+20/08/2025,,GBP,yellow,PPI Output m/m,,,,Wed
+20/08/2025,,GBP,yellow,RPI y/y,,,,Wed
+20/08/2025,4:30am,GBP,yellow,HPI y/y,,,,Wed
+20/08/2025,5:00am,EUR,yellow,Final Core CPI y/y,,,,Wed
+20/08/2025,,EUR,yellow,Final CPI y/y,,,,Wed
+20/08/2025,8:30am,CAD,yellow,NHPI m/m,,,,Wed
+20/08/2025,10:30am,USD,yellow,Crude Oil Inventories,,,,Wed
+20/08/2025,2:00pm,USD,red,FOMC Meeting Minutes,,,,Wed
+20/08/2025,6:45pm,NZD,yellow,Trade Balance,,,,Wed
+20/08/2025,7:00pm,AUD,yellow,Flash Manufacturing PMI,,,,Wed
+20/08/2025,,AUD,yellow,Flash Services PMI,,,,Wed
+20/08/2025,8:30pm,JPY,yellow,Flash Manufacturing PMI,,,,Wed
+20/08/2025,9:00pm,AUD,yellow,MI Inflation Expectations,,,,Wed
+20/08/2025,11:00pm,NZD,yellow,Credit Card Spending y/y,,,,Wed
+21/08/2025,2:00am,CHF,yellow,Trade Balance,,,,Thu
+21/08/2025,,GBP,yellow,Public Sector Net Borrowing,,,,Thu
+21/08/2025,3:15am,EUR,orange,French Flash Manufacturing PMI,,,,Thu
+21/08/2025,,EUR,orange,French Flash Services PMI,,,,Thu
+21/08/2025,3:30am,EUR,red,German Flash Manufacturing PMI,,,,Thu
+21/08/2025,,EUR,red,German Flash Services PMI,,,,Thu
+21/08/2025,4:00am,EUR,orange,Flash Manufacturing PMI,,,,Thu
+21/08/2025,,EUR,orange,Flash Services PMI,,,,Thu
+21/08/2025,4:30am,GBP,red,Flash Manufacturing PMI,,,,Thu
+21/08/2025,,GBP,red,Flash Services PMI,,,,Thu
+21/08/2025,6:00am,GBP,yellow,CBI Industrial Order Expectations,,,,Thu
+21/08/2025,8:30am,CAD,yellow,IPPI m/m,,,,Thu
+21/08/2025,,CAD,yellow,RMPI m/m,,,,Thu
+21/08/2025,,USD,red,Unemployment Claims,,,,Thu
+21/08/2025,,USD,orange,Philly Fed Manufacturing Index,,,,Thu
+21/08/2025,9:45am,USD,red,Flash Manufacturing PMI,,,,Thu
+21/08/2025,,USD,red,Flash Services PMI,,,,Thu
+21/08/2025,10:00am,EUR,yellow,Consumer Confidence,,,,Thu
+21/08/2025,,USD,orange,Existing Home Sales,,,,Thu
+21/08/2025,,USD,yellow,CB Leading Index m/m,,,,Thu
+21/08/2025,10:30am,USD,yellow,Natural Gas Storage,,,,Thu
+21/08/2025,Day 1,All,orange,Jackson Hole Symposium,,,,Thu
+21/08/2025,7:01pm,GBP,yellow,GfK Consumer Confidence,,,,Thu
+21/08/2025,7:30pm,JPY,yellow,National Core CPI y/y,,,,Thu
+22/08/2025,2:00am,EUR,yellow,German Final GDP q/q,,,,Fri
+22/08/2025,,GBP,orange,Retail Sales m/m,,,,Fri
+22/08/2025,8:30am,CAD,orange,Core Retail Sales m/m,,,,Fri
+22/08/2025,,CAD,orange,Retail Sales m/m,,,,Fri
+22/08/2025,Day 2,All,orange,Jackson Hole Symposium,,,,Fri
+23/08/2025,Day 3,All,orange,Jackson Hole Symposium,,,,Sat
+24/08/2025,6:45pm,NZD,orange,Retail Sales q/q,,,,Sun
+24/08/2025,,NZD,yellow,Core Retail Sales q/q,,,,Sun
+25/08/2025,All Day,GBP,gray,Bank Holiday,,,,Mon
+25/08/2025,4:00am,EUR,orange,German ifo Business Climate,,,,Mon
+25/08/2025,8:30am,CAD,yellow,Corporate Profits q/q,,,,Mon
+25/08/2025,9:00am,EUR,yellow,Belgian NBB Business Climate,,,,Mon
+25/08/2025,10:00am,USD,orange,New Home Sales,,,,Mon
+25/08/2025,7:01pm,GBP,yellow,BRC Shop Price Index y/y,,,,Mon
+25/08/2025,7:50pm,JPY,yellow,SPPI y/y,,,,Mon
+25/08/2025,9:30pm,AUD,yellow,Monetary Policy Meeting Minutes,,,,Mon
+26/08/2025,1:00am,JPY,yellow,BOJ Core CPI y/y,,,,Tue
+26/08/2025,6:00am,GBP,yellow,CBI Realized Sales,,,,Tue
+26/08/2025,8:30am,USD,orange,Core Durable Goods Orders m/m,,,,Tue
+26/08/2025,,USD,orange,Durable Goods Orders m/m,,,,Tue
+26/08/2025,9:00am,USD,yellow,HPI m/m,,,,Tue
+26/08/2025,,USD,yellow,S&P/CS Composite-20 HPI y/y,,,,Tue
+26/08/2025,10:00am,USD,orange,CB Consumer Confidence,,,,Tue
+26/08/2025,,USD,orange,Richmond Manufacturing Index,,,,Tue
+26/08/2025,4:30pm,USD,yellow,API Weekly Statistical Bulletin,,,,Tue
+26/08/2025,8:30pm,AUD,yellow,MI Leading Index m/m,,,,Tue
+26/08/2025,9:30pm,AUD,red,CPI y/y,,,,Tue
+26/08/2025,,AUD,yellow,Construction Work Done q/q,,,,Tue
+27/08/2025,2:00am,EUR,yellow,German GfK Consumer Climate,,,,Wed
+27/08/2025,4:00am,CHF,yellow,UBS Economic Expectations,,,,Wed
+27/08/2025,9:00am,CNY,yellow,CB Leading Index m/m,,,,Wed
+27/08/2025,10:30am,USD,yellow,Crude Oil Inventories,,,,Wed
+27/08/2025,9:00pm,NZD,yellow,ANZ Business Confidence,,,,Wed
+27/08/2025,9:30pm,AUD,yellow,Private Capital Expenditure q/q,,,,Wed
+28/08/2025,2:00am,GBP,yellow,Nationwide HPI m/m,,,,Thu
+28/08/2025,2:30am,CHF,yellow,Retail Sales y/y,,,,Thu
+28/08/2025,3:00am,CHF,orange,GDP q/q,,,,Thu
+28/08/2025,4:00am,EUR,yellow,M3 Money Supply y/y,,,,Thu
+28/08/2025,,EUR,yellow,Private Loans y/y,,,,Thu
+28/08/2025,7:30am,EUR,yellow,ECB Monetary Policy Meeting Accounts,,,,Thu
+28/08/2025,8:30am,CAD,yellow,Current Account,,,,Thu
+28/08/2025,,USD,red,Prelim GDP q/q,,,,Thu
+28/08/2025,,USD,red,Unemployment Claims,,,,Thu
+28/08/2025,,USD,orange,Prelim GDP Price Index q/q,,,,Thu
+28/08/2025,10:00am,USD,orange,Pending Home Sales m/m,,,,Thu
+28/08/2025,10:30am,USD,yellow,Natural Gas Storage,,,,Thu
+28/08/2025,Tentative,CAD,yellow,Annual Budget Release,,,,Thu
+28/08/2025,7:30pm,JPY,orange,Tokyo Core CPI y/y,,,,Thu
+28/08/2025,,JPY,yellow,Unemployment Rate,,,,Thu
+28/08/2025,7:50pm,JPY,yellow,Prelim Industrial Production m/m,,,,Thu
+28/08/2025,,JPY,yellow,Retail Sales y/y,,,,Thu
+28/08/2025,9:30pm,AUD,yellow,Private Sector Credit m/m,,,,Thu
+29/08/2025,1:00am,JPY,yellow,Consumer Confidence,,,,Fri
+29/08/2025,,JPY,yellow,Housing Starts y/y,,,,Fri
+29/08/2025,2:00am,EUR,yellow,German Import Prices m/m,,,,Fri
+29/08/2025,,EUR,yellow,German Retail Sales m/m,,,,Fri
+29/08/2025,2:29am,EUR,orange,German Prelim CPI m/m,,,,Fri
+29/08/2025,2:45am,EUR,yellow,French Consumer Spending m/m,,,,Fri
+29/08/2025,,EUR,yellow,French Final Private Payrolls q/q,,,,Fri
+29/08/2025,,EUR,yellow,French Prelim CPI m/m,,,,Fri
+29/08/2025,,EUR,yellow,French Prelim GDP q/q,,,,Fri
+29/08/2025,3:00am,CHF,yellow,KOF Economic Barometer,,,,Fri
+29/08/2025,,EUR,orange,Spanish Flash CPI y/y,,,,Fri
+29/08/2025,3:55am,EUR,yellow,German Unemployment Change,,,,Fri
+29/08/2025,5:00am,EUR,yellow,Italian Prelim CPI m/m,,,,Fri
+29/08/2025,8:30am,CAD,red,GDP m/m,,,,Fri
+29/08/2025,,USD,red,Core PCE Price Index m/m,,,,Fri
+29/08/2025,,USD,yellow,Goods Trade Balance,,,,Fri
+29/08/2025,,USD,yellow,Personal Income m/m,,,,Fri
+29/08/2025,,USD,yellow,Personal Spending m/m,,,,Fri
+29/08/2025,,USD,yellow,Prelim Wholesale Inventories m/m,,,,Fri
+29/08/2025,9:45am,USD,yellow,Chicago PMI,,,,Fri
+29/08/2025,10:00am,USD,orange,Revised UoM Consumer Sentiment,,,,Fri
+29/08/2025,,USD,yellow,Revised UoM Inflation Expectations,,,,Fri
+30/08/2025,9:30pm,CNY,red,Manufacturing PMI,,,,Sat
+30/08/2025,,CNY,orange,Non-Manufacturing PMI,,,,Sat
+31/08/2025,6:45pm,NZD,yellow,Building Consents m/m,,,,Sun
+31/08/2025,7:50pm,JPY,yellow,Capital Spending q/y,,,,Sun
+31/08/2025,8:30pm,JPY,yellow,Final Manufacturing PMI,,,,Sun
+31/08/2025,9:00pm,AUD,yellow,MI Inflation Gauge m/m,,,,Sun
+31/08/2025,9:30pm,AUD,orange,Retail Sales m/m,,,,Sun
+31/08/2025,,AUD,yellow,ANZ Job Advertisements m/m,,,,Sun
+31/08/2025,,AUD,yellow,Building Approvals m/m,,,,Sun
+31/08/2025,,AUD,yellow,Company Operating Profits q/q,,,,Sun
+31/08/2025,9:45pm,CNY,yellow,Caixin Manufacturing PMI,,,,Sun

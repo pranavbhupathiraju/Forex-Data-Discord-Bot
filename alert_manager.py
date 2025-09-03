@@ -168,8 +168,8 @@ class AlertManager:
         logger.debug(
             f"Checking release alert for {event.get('event')} at {event.get('time')} - diff: {time_diff:.1f}s")
 
-        # Release alert (within 1 second after event time for precise timing)
-        if 0 <= time_diff <= 1:
+        # Release alert (within 30 seconds after event time for more reliable timing)
+        if 0 <= time_diff <= 30:
             alert_id = self._generate_alert_id(event, "release")
 
             if alert_id not in self.alerted_events:
