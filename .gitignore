@@ -1,3 +1,4 @@
+# Code clean up - Updated gitignore
 config.json
 .env
 logs/
