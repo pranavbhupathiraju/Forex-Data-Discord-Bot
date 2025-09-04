@@ -1,3 +1,4 @@
+# Code clean up - Updated bot main file
 import discord
 import asyncio
 from logger import logger

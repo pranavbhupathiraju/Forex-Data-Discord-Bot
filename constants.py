@@ -1,6 +1,7 @@
 """
 Constants for the Economic Data Discord Bot
 Centralized configuration for all magic numbers and default values
+Code clean up - Updated constants
 """
 
 # Alert timing constants (in seconds)

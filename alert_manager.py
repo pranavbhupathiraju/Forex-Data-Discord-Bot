@@ -1,3 +1,4 @@
+# Code clean up - Updated alert manager
 import asyncio
 import discord
 import hashlib

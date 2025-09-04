@@ -1,4 +1,5 @@
 # Changelog
+<!-- Code clean up - Updated changelog -->
 
 ## [2.0.0] - Major Refactor and Improvements
 

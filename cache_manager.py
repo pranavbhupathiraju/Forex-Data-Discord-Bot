@@ -1,6 +1,7 @@
 """
 Centralized cache management for the Economic Data Discord Bot
 Handles caching of configuration, database, and CSV data
+Code clean up - Updated cache manager
 """
 
 import time

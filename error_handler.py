@@ -1,6 +1,7 @@
 """
 Centralized error handling for the Economic Data Discord Bot
 Provides consistent error handling and logging across all modules
+Code clean up - Updated error handler
 """
 
 import traceback

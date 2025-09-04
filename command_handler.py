@@ -1,3 +1,4 @@
+# Code clean up - Updated command handler
 import asyncio
 from typing import Dict, Callable, Any, Optional
 from discord import Message

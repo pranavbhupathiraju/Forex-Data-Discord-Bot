@@ -1,4 +1,6 @@
 
+# Code clean up - Updated data file
+
 TIMEZONES = [
   'Etc/GMT+12', 'Pacific/Midway', 'Pacific/Pago_Pago', 'Pacific/Honolulu',
   'America/Juneau', 'America/Los_Angeles', 'America/Tijuana', 'America/Denver',

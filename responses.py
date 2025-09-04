@@ -1,3 +1,4 @@
+# Code clean up - Updated responses
 import json
 import requests
 import asyncio
